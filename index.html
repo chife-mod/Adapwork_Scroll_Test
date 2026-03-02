@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S7 Mesh — Scroll Video Experience</title>
+    <meta name="description"
+        content="Interactive scroll-driven video playback experience inspired by Apple's product pages">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <circle cx="24" cy="24" r="20" stroke="rgba(255,255,255,0.1)" stroke-width="2" />
+                    <circle cx="24" cy="24" r="20" stroke="url(#grad)" stroke-width="2" stroke-dasharray="125.6"
+                        stroke-dashoffset="125.6" class="preloader-circle" />
+                    <defs>
+                        <linearGradient id="grad" x1="0" y1="0" x2="48" y2="48">
+                            <stop offset="0%" stop-color="#6366f1" />
+                            <stop offset="100%" stop-color="#a855f7" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <p class="preloader-text">Loading experience</p>
+            <p class="preloader-percent" id="preloader-percent">0%</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">R&D · Process Demo</div>
+            <h1 class="hero-title">S7 Mesh</h1>
+            <p class="hero-subtitle">Scroll-driven video · Предложение для сайта</p>
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-dot"></div>
+                </div>
+                <span>Scroll down</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video-section">
+        <div class="video-sticky">
+            <canvas id="scroll-canvas"></canvas>
+
+            <!-- Progress bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <!-- Frame counter -->
+            <div class="frame-info" id="frame-info">
+                <span class="frame-time">00:00</span>
+                <span class="frame-separator">•</span>
+                <span class="frame-progress">0%</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics" id="metrics">
+        <div class="metrics-header">
+            <h2 class="metrics-title">Преимущества решения</h2>
+            <p class="metrics-subtitle">Scroll-driven video — как у Apple, Tesla и других премиальных брендов</p>
+        </div>
+        <div class="metrics-grid">
+            <div class="metric">
+                <span class="metric-value">10×</span>
+                <span class="metric-label">Меньше размер файла<br>по сравнению с image sequence</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">5–10×</span>
+                <span class="metric-label">Легче, чем MP4<br>с ключевым кадром в каждом фрейме</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">30fps</span>
+                <span class="metric-label">Достаточно для плавности,<br>но при 60fps будет вообще супер</span>
+            </div>
+            <div class="metric">
+                <span class="metric-value">0</span>
+                <span class="metric-label">Зависимостей — чистый JS,<br>без библиотек и плагинов</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="compat" id="comparison">
+        <h3 class="compat-title">Сравнение с альтернативами</h3>
+        <table class="compat-table compare-table">
+            <thead>
+                <tr>
+                    <th>Подход</th>
+                    <th>Загрузка</th>
+                    <th>Память</th>
+                    <th>При скролле</th>
+                    <th>Размер</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Image sequence (JPEG)</td>
+                    <td><span class="dot dot-red"></span> Тяжело</td>
+                    <td><span class="dot dot-red"></span> Много</td>
+                    <td><span class="dot dot-green"></span> Быстро</td>
+                    <td><span class="dot dot-red"></span> Огромный</td>
+                </tr>
+                <tr>
+                    <td>MP4 + keyframe в каждом кадре</td>
+                    <td><span class="dot dot-green"></span> Быстро</td>
+                    <td><span class="dot dot-green"></span> Мало</td>
+                    <td><span class="dot dot-red"></span> Дёргается</td>
+                    <td><span class="dot dot-red"></span> Большой</td>
+                </tr>
+                <tr class="compare-highlight">
+                    <td><strong>Наше решение</strong><br><span class="compare-sub">MP4 + canvas cache</span></td>
+                    <td><span class="dot dot-yellow"></span> Прелоадер 3с</td>
+                    <td><span class="dot dot-yellow"></span> Средне</td>
+                    <td><span class="dot dot-green"></span> Мгновенно</td>
+                    <td><span class="dot dot-green"></span> Маленький</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Compatibility Section -->
+    <section class="compat" id="compat">
+        <h3 class="compat-title">Совместимость</h3>
+        <table class="compat-table">
+            <thead>
+                <tr>
+                    <th>Браузер / Платформа</th>
+                    <th>Поддержка</th>
+                    <th>Примечание</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chrome / Edge</td>
+                    <td><span class="compat-yes">✓</span></td>
+                    <td>Полная поддержка</td>
+                </tr>
+                <tr>
+                    <td>Safari (macOS / iOS)</td>
+                    <td><span class="compat-yes">✓</span></td>
+                    <td>Safari 15+</td>
+                </tr>
+                <tr>
+                    <td>Firefox</td>
+                    <td><span class="compat-yes">✓</span></td>
+                    <td>Полная поддержка</td>
+                </tr>
+                <tr>
+                    <td>Mobile (Android / iOS)</td>
+                    <td><span class="compat-yes">✓</span></td>
+                    <td>Touch-скролл</td>
+                </tr>
+                <tr>
+                    <td>Canvas API</td>
+                    <td><span class="compat-yes">✓</span></td>
+                    <td>99.5% пользователей</td>
+                </tr>
+                <tr>
+                    <td>ImageBitmap API</td>
+                    <td><span class="compat-yes">✓</span></td>
+                    <td>96%+ пользователей</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
