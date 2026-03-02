@@ -520,6 +520,64 @@ body {
 }
 
 /* ========================================
+   Conclusion Section
+   ======================================== */
+.conclusion {
+    padding: 80px 48px 120px;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.conclusion::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-secondary));
+    border-radius: 1px;
+}
+
+.conclusion-content {
+    text-align: center;
+}
+
+.conclusion-title {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+}
+
+.conclusion-text {
+    font-size: 17px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.conclusion-text strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.conclusion-highlight {
+    margin-top: 36px;
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-accent) 50%, var(--color-accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========================================
    Responsive
    ======================================== */
 @media (max-width: 768px) {

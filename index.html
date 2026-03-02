@@ -182,6 +182,26 @@
         </table>
     </section>
 
+    <!-- Conclusion Section -->
+    <section class="conclusion" id="conclusion">
+        <div class="conclusion-content">
+            <h2 class="conclusion-title">Вывод</h2>
+            <p class="conclusion-text">
+                MP4 + keyframe в каждом кадре даёт хорошее качество при скролле, но ценой <strong>многократно
+                    увеличенного размера файла</strong> — каждый кадр хранится целиком, что делает видео в 5–10 раз
+                тяжелее.
+            </p>
+            <p class="conclusion-text">
+                Наше решение — <strong>MP4 + canvas cache</strong> — использует обычный сжатый MP4 (минимальный вес),
+                кэширует кадры при загрузке за ~3 секунды, и после этого обеспечивает <strong>мгновенный отклик при
+                    скролле</strong>. Ноль зависимостей, работает во всех браузерах.
+            </p>
+            <p class="conclusion-text conclusion-highlight">
+                Оптимальный баланс: маленький файл → быстрая загрузка → плавный скролл.
+            </p>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 
